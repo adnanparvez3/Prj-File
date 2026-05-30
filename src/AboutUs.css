@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #020604;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* IMPORTANT: Allow the page to scroll naturally */
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+/* SECTION 1: Full-width Header */
+.welcome-hero {
+    width: 100%;
+    min-height: 100vh; /* Only the first view is full screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #064e3b 0%, #020604 100%);
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-title { font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; line-height: 1; }
+.hero-title span { color: #2ecc71; }
+.line { width: 60px; height: 4px; background: #2ecc71; margin: 20px auto; }
+
+.btn-start {
+    background: #2ecc71; color: black;
+    border: none; padding: 18px 45px;
+    border-radius: 50px; font-weight: 800;
+    cursor: pointer; transition: 0.3s;
+}
+
+/* SECTION 2: Dynamic Content Area */
+.details-container {
+    width: 100%;
+    /* Use min-height, NOT height. This allows it to expand downward. */
+    min-height: 100vh;
+    padding: 100px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title { font-size: clamp(2rem, 7vw, 4rem); margin: 20px 0; }
+.title span { color: #2ecc71; }
+
+/* Bento Grid: Automatically fits the screen */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 30px;
+}
+
+.mission, .expert { grid-column: span 2; } /* Full width cards */
+.stat h4 { font-size: 3rem; color: #2ecc71; }
+
+/* Responsive: Stack cards on mobile */
+@media (max-width: 768px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .mission, .expert, .stat { grid-column: span 1; }
+}
